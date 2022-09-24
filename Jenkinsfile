@@ -1,5 +1,4 @@
 pipeline{
-
   agent any
 
   stages{
@@ -16,6 +15,7 @@ pipeline{
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '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', url: 'https://github.com/cosmeaf/django_budget']]])       
         }
     }
+  }
 
   stages{
     stage('Setup Python Virtual ENV'){
