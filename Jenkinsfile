@@ -8,5 +8,13 @@ pipeline{
       }
     }
   }
+
+  stages{
+    stage('Checkout'){
+        steps{
+          sh 'setupEnviroment.sh'
+      }
+    }
+  }
   
 }
