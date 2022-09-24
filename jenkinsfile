@@ -1,4 +1,5 @@
 pipeline{
+
   agent any
 
   stages{
@@ -6,6 +7,17 @@ pipeline{
         steps{
           checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/cosmeaf/django_budget']]])
       }
+    }
+  }
+
+  stages{
+    stage('Setup Python Virtual ENV'){
+        steps{
+          sh '''
+            chmod +x setupEnviroment.sh
+            ./setupEnviroment.sh
+          '''
+        }
     }
   }
   
