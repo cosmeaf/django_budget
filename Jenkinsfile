@@ -8,11 +8,11 @@ pipeline{
       }
     }
 
-    stage('Checkout'){
+    stage('Setup Python virtual ENV'){
       steps{
           sh 'setupEnviroment.sh'
       }
     }
   } 
-   
+
 }
