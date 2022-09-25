@@ -7,14 +7,12 @@ pipeline{
           checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/cosmeaf/django_budget']]])
       }
     }
-  }
 
-  stages{
     stage('Checkout'){
-        steps{
+      steps{
           sh 'setupEnviroment.sh'
       }
     }
-  }
-  
+  } 
+   
 }
