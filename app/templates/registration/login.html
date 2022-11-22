@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+<!-- extend Content  -->
+
+{% block content %}
+<!-- Base Content -->
+
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col mt-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <form method="POST" autocomplete="off" novalidate>
+            {% csrf_token %}
+            <div class="mb-3 mt-4">
+              <label for="username" class="form-label">Usuário / E-mail</label>
+              <input
+                type="username"
+                class="form-control"
+                name="username"
+                id="username"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+              />
+            </div>
+            <button type="submit" class="btn btn-dark btn-block mb-3 mt-5">
+              Entrar
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {% if form.errors %}
+      <div
+        class=" mt-3 alert alert-danger alert-dismissible fade show text-center {{message.tags}} "
+        role="alert"
+      >
+        Enter your data correctly
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock content %}
