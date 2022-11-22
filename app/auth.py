@@ -3,4 +3,6 @@ from django.contrib.auth import get_user_model
 from django.db.models import Q
 
 def Email_OR_Username():
-  pass
+  def get_user(self, user_id):
+    try:
+      
